@@ -28,6 +28,7 @@ function taskEdit(dataIndex){
     popUp.value = true;
     taskData.name = tasks.value[dataIndex].name;
     taskData.time = tasks.value[dataIndex].time;
+    taskIndex.value = dataIndex;
 }
 function popupClose(){
   popUp.value = false;
@@ -36,8 +37,8 @@ function updateIndex(updatedIndex){
   taskIndex.value = updatedIndex.value;
 }
 function updateTask(){
-  tasks.value[taskIndex].name = taskData.name;
-  tasks.value[taskIndex].time = taskData.time;
+  tasks.value[taskIndex.value].name = taskData.name;
+  tasks.value[taskIndex.value].time = taskData.time;
   popUp.value = false;
 }
 </script>
