@@ -19,26 +19,23 @@ const tasks = ref([{
 
 
 const taskIndex = ref();
-const taskData = {
+const taskData = ref({
   name: '',
   time: ''
-}
+})
 const popUp = ref(false);
 function taskEdit(dataIndex){
-    popUp.value = true;
-    taskData.name = tasks.value[dataIndex].name;
-    taskData.time = tasks.value[dataIndex].time;
+    taskData.value.name = tasks.value[dataIndex].name;
+    taskData.value.time = tasks.value[dataIndex].time;
     taskIndex.value = dataIndex;
+    popUp.value = true;
 }
 function popupClose(){
   popUp.value = false;
 }
-function updateIndex(updatedIndex){
-  taskIndex.value = updatedIndex.value;
-}
 function updateTask(){
-  tasks.value[taskIndex.value].name = taskData.name;
-  tasks.value[taskIndex.value].time = taskData.time;
+  tasks.value[taskIndex.value].name = taskData.value.name;
+  tasks.value[taskIndex.value].time = taskData.value.time;
   popUp.value = false;
 }
 </script>
